@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/04/28 14:29:17 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/04/30 17:49:29 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,24 @@ char	*ft_strjoin(char *str1, const char *str2)
 	return (str3);
 }
 
-char	*ft_split_end(char *str, int n)
+char	*ft_strdup(const char *s1)
 {
 	int		i;
-	char	*str2;
+	int		n;
+	char	*s2;
 
 	i = 0;
-	str2 = malloc(sizeof(char) * (n + 1));
-	if (!str2)
+	n = ft_strlen(s1) + 1;
+	s2 = malloc(n * sizeof(char));
+	if (!s2)
 		return (NULL);
-	while (i <= n)
+	while (s1[i])
 	{
-		str2[i] = str[i];
+		s2[i] = s1[i];
 		i++;
 	}
-	free(str);
-	str = NULL;
-	return (str2);
+	s2[i] = '\0';
+	return (s2);
 }
 
 void	ft_clean(char *str)

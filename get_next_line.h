@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:43 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/04/28 11:05:32 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/04/30 14:42:05 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+char	*ft_strjoin(char *str1, const char *str2)
+size_t	ft_strlen(const char *s);
+
 
 #endif
