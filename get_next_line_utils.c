@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/02 15:01:01 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:14:21 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ size_t	ft_strlen(const char *s)
 	return (size);
 }
 
-char	*ft_strjoin(char *str1, const char *str2)
+char	*ft_strjoin(char *str_static, const char *bufread)
 {
 	size_t	len;
 	char	*str3;
 	int		i;
 	int		j;
 
-	len = ft_strlen(str1) + ft_strlen(str2) + 1;
+	len = ft_strlen(str_static) + ft_strlen(bufread) + 1;
 	i = 0;
 	j = 0;
 	str3 = malloc(sizeof(char) * len);
 	if (!str3)
 		return (NULL);
-	while (str1[i])
+	while (str_static[i])
 	{
-		str3[i] = str1[i];
+		str3[i] = str_static[i];
 		i++;
 	}
-	while (str2[j])
+	while (bufread[j])
 	{
-		str3[i + j] = str2[j];
+		str3[i + j] = bufread[j];
 		j++;
 	}
 	str3[i + j] = '\0';

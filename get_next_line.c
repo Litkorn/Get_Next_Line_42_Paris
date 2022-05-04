@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/02 20:31:15 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:31:40 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ char	*get_next_line(int fd)
 {
 	static char	*buf_static;
 	char		*bufread;
-	int	i;
+	int			i;
 
+	i = 1;
 	if (fd < 0 || fd > 1023 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (!buf_static)
@@ -80,17 +81,22 @@ char	*get_next_line(int fd)
 	bufread = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!bufread)
 		return (NULL);
-	while (i > 1 && ft_buf_read(bufread) != )
+	while (i > 0)
 	{
-		printf("%s\n", bufread);
+//		printf("%s", bufread);
 		i = read(fd, bufread, BUFFER_SIZE);
-//		buf_static = ft_strjoin(buf_static, bufread);
-//		printf("%s\n", buf_static);
+		if (buf_static == NULL)
+			buf_static = bufread;
+		else
+			buf_static = ft_strjoin(buf_static, bufread);
+		bufread[i] = '\0';
+		printf("buf_static: %s\n", buf_static);
+		printf("bufread: %s\n", bufread);
 	}/*
 	ft_clean(bufread);
 	if (buf_static != NULL)
-		return (ft_return(buf_static));
-	return (NULL);*/
+		return (ft_return(buf_static));*/
+	return (NULL);
 }
 
 int	main(void)
