@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/06 17:23:07 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:28:00 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,10 @@ char	*get_next_line(int fd)
 	printf("bufread2:%s, buf_static2: %s\n", bufread, buf_static);
 	//ft_clean(bufread); //jusqu'ici ok
 	printf("ICI");
-/*	if (ft_buf_read(buf_static) == 1)
-		return ("OK");*/
-	return ("OKOK");
+	printf("%s", buf_static);
+	if (ft_buf_read(buf_static) == 1)
+		return (buf_static);
+	return (NULL);
 }
 
 int	main(void)
