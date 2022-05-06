@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/04 18:14:21 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:01:32 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (size);
 }
 
-char	*ft_strjoin(char *str_static, const char *bufread)
+char	*ft_strjoin(char *str_static, const char *bufread, int k)
 {
 	size_t	len;
 	char	*str3;
@@ -40,7 +40,7 @@ char	*ft_strjoin(char *str_static, const char *bufread)
 		str3[i] = str_static[i];
 		i++;
 	}
-	while (bufread[j])
+	while (bufread[j] && j < k)
 	{
 		str3[i + j] = bufread[j];
 		j++;

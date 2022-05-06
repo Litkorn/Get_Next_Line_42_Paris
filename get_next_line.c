@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/04 18:48:19 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/06 17:23:07 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ static char	*ft_return(char *buf_static)
 
 	i = 0;
 	buf = NULL;
-	if (ft_buf_read(buf_static) == 0)
-		return (NULL);
+/*	if (ft_buf_read(buf_static) == 0)
+		return (NULL);*/
+	printf("ICI2");
 	if (ft_buf_read(buf_static) == 1)
 	{
 		while (buf_static[i] != '\n')
 			i++;
+		printf("ICI");
 		if (buf_static[i + 1] != '\0')
 			ft_split_end(&buf, &buf_static, (i));
 		return (buf);
@@ -77,26 +79,25 @@ char	*get_next_line(int fd)
 	if (!buf_static)
 		buf_static = "\0";
 	else if (ft_buf_read(buf_static) > 0)
-		return (ft_return(buf_static)); // ok jusque la
+		return (ft_return(buf_static));
 	bufread = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!bufread)
 		return (NULL);
-	while (i > 0)
+	while (i > 0 && ft_buf_read(bufread) != 1)
 	{
-		buf_static = ft_strjoin(buf_static, bufread);
-//		printf("%s", bufread);
 		i = read(fd, bufread, BUFFER_SIZE);
-/*		if (!buf_static)
-			buf_static = bufread;
-		else*/
+		buf_static = ft_strjoin(buf_static, bufread, i);
 		bufread[i] = '\0';
-		printf("bufread: %s\n", bufread);
-		printf("buf_static: %s\n", buf_static);
-	}/*
-	ft_clean(bufread);
-	if (buf_static != NULL)
-		return (ft_return(buf_static));*/
-	return (NULL);
+		if (i != BUFFER_SIZE)
+			i = 0;
+		printf ("bufread:%s, buf_static:%s\n", bufread, buf_static);
+	}
+	printf("bufread2:%s, buf_static2: %s\n", bufread, buf_static);
+	//ft_clean(bufread); //jusqu'ici ok
+	printf("ICI");
+/*	if (ft_buf_read(buf_static) == 1)
+		return ("OK");*/
+	return ("OKOK");
 }
 
 int	main(void)
