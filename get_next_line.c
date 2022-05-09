@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/09 16:49:22 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/09 17:45:18 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,12 +105,14 @@ int	main(void)
 	char *str;
 
 	str = get_next_line(fd);
-	while (str != NULL)
+/*	while (str != NULL)
 	{
 		printf("%s", str);
 		str = get_next_line(fd);
-	}
-//	printf("%s", str);
+	}*/
+	printf("%s\n\n", str);
+	str = get_next_line(fd);
+	printf("%s", str);
 	close(fd);
 	return (0);
 }
