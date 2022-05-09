@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/09 15:35:26 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:49:38 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *str_static, const char *bufread, int k)
 	return (str3);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *s1)
 {
 	int		i;
 	int		n;
@@ -69,9 +69,9 @@ char	*ft_strdup(const char *s1)
 	return (s2);
 }
 
-char	*ft_clean(char *str)
+char	*ft_clean(char **str)
 {
-	free(str);
-	str = NULL;
-	return (str);
+	free(*str);
+	(*str) = NULL;
+	return (*str);
 }

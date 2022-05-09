@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:43 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/09 14:15:30 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/09 16:49:45 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 # include <fcntl.h>
 
 char	*get_next_line(int fd);
-char	*ft_clean(char *str);
-char	*ft_strdup(const char *s1);
+char	*ft_clean(char **str);
+char	*ft_strdup(char *s1);
 char	*ft_strjoin(char *str1, const char *str2, int k);
 size_t	ft_strlen(const char *s);
 
