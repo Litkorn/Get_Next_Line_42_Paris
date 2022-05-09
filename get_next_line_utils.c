@@ -6,7 +6,7 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/06 17:01:32 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/09 13:24:21 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,9 @@ char	*ft_strdup(const char *s1)
 	return (s2);
 }
 
-void	ft_clean(char *str)
+char	*ft_clean(char *str)
 {
 	free(str);
 	str = NULL;
+	return (str);
 }
