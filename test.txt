@@ -1,2 +1,17 @@
-coucou c'est moi
-lol
+valgrind ./a.out arg1 arg2
+1. leaks
+2. write/read
+3. truc non initialise
+
+ne pas lancer valgrind avec fsanitize ( flag )
+
+lldb a.out
+lldb -- a.out arg1 arg2
+
+b "fonction" -> commence a la fonction
+run au breakpoint
+n pour suivant
+s pour entrer dans la fonction
+gui pour interface graphique
+c continue au prochain breakpoint
+

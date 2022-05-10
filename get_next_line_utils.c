@@ -6,11 +6,30 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:34 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/09 16:49:38 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/10 16:19:52 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	char	*str;
+	void	*str2;
+	size_t	nb;
+
+	nb = 0;
+	str = malloc(count * size);
+	if (!str)
+		return (NULL);
+	while (nb < count * size)
+	{
+		str[nb] = '\0';
+		nb++;
+	}
+	str2 = (void *) str;
+	return (str2);
+}
 
 size_t	ft_strlen(const char *s)
 {
@@ -24,17 +43,16 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_strjoin(char *str_static, const char *bufread, int k)
 {
-	size_t	len;
 	char	*str3;
 	int		i;
 	int		j;
 
-	len = ft_strlen(str_static) + ft_strlen(bufread) + 1;
 	i = 0;
 	j = 0;
-	str3 = malloc(sizeof(char) * len);
+	str3 = malloc(sizeof(char)
+			* (ft_strlen(str_static) + ft_strlen(bufread) + 1));
 	if (!str3)
-		return (NULL);
+		return (ft_clean(&str3));
 	while (str_static[i])
 	{
 		str3[i] = str_static[i];
@@ -46,6 +64,7 @@ char	*ft_strjoin(char *str_static, const char *bufread, int k)
 		j++;
 	}
 	str3[i + j] = '\0';
+	free(str_static);
 	return (str3);
 }
 
@@ -73,5 +92,5 @@ char	*ft_clean(char **str)
 {
 	free(*str);
 	(*str) = NULL;
-	return (*str);
+	return (NULL);
 }
