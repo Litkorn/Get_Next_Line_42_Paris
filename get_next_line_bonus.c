@@ -6,11 +6,11 @@
 /*   By: cleibeng <cleibeng@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 17:22:38 by cleibeng          #+#    #+#             */
-/*   Updated: 2022/05/10 18:23:40 by cleibeng         ###   ########.fr       */
+/*   Updated: 2022/05/11 15:15:26 by cleibeng         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static int	ft_cut_end(char **buf, char **buf_static, int n)
 {
@@ -29,8 +29,8 @@ static int	ft_cut_end(char **buf, char **buf_static, int n)
 	return (n + 1);
 }
 
-/* lit le buffer: si un \n -> renvoie 1, si pas de buf-> renvoie 0,
-si pas de \n mais buf != \0 -> renvoie 2 */
+/* lit le buffer: si un \n -> renvoie 1,
+	si pas de \n mais buf != \0 -> renvoie 2 */
 static int	ft_buf_read(char *buf)
 {
 	int	i;
